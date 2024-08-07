@@ -221,8 +221,8 @@ int rbtree_erase(rbtree *t, node_t *z) {
     y_org_color = y->color;             //삭제되는 후계자 y의 색을 저장 
     x = y->right;                       //y가 삭제될 것이기 때문에, y의 자리에 x가 대체 노드로 올라와야 한다
 
-    if(y->parent == z){                 //z가 삭제되면, y의 부모가 z일 때 x의 부모가 y인 것을 선언
-        x->parent = y;
+    if(y->parent == z){                 //z가 삭제되면, y의 부모가 z라면 x의 부모가 y인 것을 선언
+      x->parent = y;
     }else{
       rbtree_transplant(t, y, y->right);//z에 y 를 심기 전에, y의 자리에 y의 자식을 삽입
       y->right = z->right;              
